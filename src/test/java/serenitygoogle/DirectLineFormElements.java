@@ -15,6 +15,8 @@ public class DirectLineFormElements extends PageObject {
     @FindBy(className="section__heading")
     public WebElementFacade section__heading;
 
+    public By cookies = By.id("onetrust-accept-btn-handler");
+
     //Registration
     public By regSearch = By.id("regSearch");
     public By findButton = By.id("find-reg");

@@ -20,6 +20,7 @@ public class DirectLineFormActions extends UIInteractions {
 
     @Step("Enter Registration")
     public void enterRegistration(){
+        find(directLineForm.cookies).click();
         find(directLineForm.regSearch).sendKeys("BD14 FRA");
         find(directLineForm.findButton).click();
 

@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.openqa.selenium.WebDriver;
 
+import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
 
@@ -25,7 +26,7 @@ public class WhenQuotingCar {
     public void BeforeEach(){
         //Navigate to the DirectLine Homepage
         searchDL.toHomePage();
-        driver.manage().timeouts().implicitlyWait(15,TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
     }
 
     @Test
@@ -36,6 +37,7 @@ public class WhenQuotingCar {
 
     @Test
     public void interactingWithSite(){
+
         searchDL.enterRegistration();
 
 //        String text = searchDL.interactInformationButton();
