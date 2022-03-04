@@ -26,6 +26,7 @@ public class DirectLineFormActions extends UIInteractions {
     public void enterRegistration(){
         find(directLineForm.regSearch).sendKeys(TestData.TEST_REG);
         find(directLineForm.findButton).click();
+        interactWithButtons();
     }
 
     @Step("Interact with Information Button")
@@ -34,7 +35,6 @@ public class DirectLineFormActions extends UIInteractions {
         return find(directLineForm.modifiedHintText).getText();
     }
 
-    @Step("Interacting with the radio buttons")
     public void interactWithButtons(){
         //Go through the buttons loaded testing that they work
         find(directLineForm.isYourCarYes).click();

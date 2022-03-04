@@ -7,5 +7,5 @@ public class TestData {
     static final String HEADER = "About the car";
 
     static final String DIRECTLINE_URL = "https://www.directline.com/car/quote/your-car";
-    static final String TEST_REG = "BD14 FRA";
+    static final String TEST_REG = "GF21 WSN";
 }

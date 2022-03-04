@@ -22,7 +22,6 @@ public class WhenQuotingCar {
     public void BeforeEach(){
         //Navigate to the DirectLine Homepage
         searchDL.toHomePage();
-        searchDL.acceptCookies();
     }
 
     @Test
@@ -33,19 +32,18 @@ public class WhenQuotingCar {
 
     @Test
     public void interactingWithSite(){
-        searchDL.enterRegistration();
-    }
-
-    @Test
-    public void interactingWithButtons(){
-        searchDL.enterRegistration();
-        searchDL.interactWithButtons();
-    }
-
-    @Test
-    public void interactWithHint(){
+        //Goes through sunny day scenario of using the form
+        searchDL.acceptCookies();
+        //Testing the hint provides the correct information
         String text = searchDL.interactInformationButton();
         System.out.println(text);
         Assertions.assertEquals(TestData.MODIFIED_HINT,text);
+
+        searchDL.enterRegistration();
+
+        searchDL.interactWithButtons();
+
+
     }
+
 }
