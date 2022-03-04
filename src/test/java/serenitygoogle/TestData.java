@@ -8,4 +8,22 @@ public class TestData {
 
     static final String DIRECTLINE_URL = "https://www.directline.com/car/quote/your-car";
     static final String TEST_REG = "GF21 WSN";
+
+    static final int TEST_CAR_VALUE = 70000;
+
+    public enum Keeper{
+        YOU("You (proposer)");
+
+
+        private final String value;
+
+        Keeper(final String value) {
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return value;
+        }
+    }
 }
