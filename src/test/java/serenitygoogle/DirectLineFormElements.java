@@ -10,7 +10,7 @@ import org.openqa.selenium.By;
 
 public class DirectLineFormElements extends PageObject {
 
-    //Creating objects from the webpage to interact withc
+    //Creating objects from the webpage to interact with
     //HEADING
     @FindBy(className="section__heading")
     public WebElementFacade section__heading;
@@ -25,23 +25,15 @@ public class DirectLineFormElements extends PageObject {
     @FindBy(className = "vehicleModified-No")
     public WebElementFacade vehModNo;
 
-    @FindBy(xpath = "/html/body/app-root/main/div/app-quote/app-journey/app-your-car/section/div/dlg-field[3]/fieldset/dlg-hint/button")
-    public WebElementFacade modifiedHint;
+    //Modified Hint
+    public By modifiedHintButton = By.cssSelector("body > app-root > main > div > app-quote > app-journey > app-your-car > section > div > dlg-field:nth-child(4) > fieldset > dlg-hint > button");
+    public By modifiedHintText = By.id("vehicleModified-hint");
 
-    @FindBy(className = "dlg-hint__text")
-    public WebElementFacade modifiedHintText;
+    //Buttons
+    public By isYourCarNo = By.cssSelector("label[for=isYourCar-No]");
+    public By isYourCarYes = By.cssSelector("label[for=isYourCar-Yes]");
+    public By isCar = By.cssSelector("label[for=isCarOrVan-Car]");
+    public By isVan = By.cssSelector("label[for=isCarOrVan-Van]");
 
-    //BUTTONS
-    @FindBy(css="Label = isYourCar-No")
-    public WebElementFacade isYourCarNo;
-
-    @FindBy(css="Label = isYourCar-Yes")
-    public WebElementFacade isYourCarYes;
-
-    @FindBy(css="Label = isCarOrVan-Car")
-    public WebElementFacade isCar;
-
-    @FindBy(css="Label = isCarOrVan-Van")
-    public WebElementFacade isVan;
 
 }

@@ -9,10 +9,6 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.openqa.selenium.WebDriver;
 
-import java.time.Duration;
-import java.util.concurrent.TimeUnit;
-
-
 @ExtendWith(SerenityJUnit5Extension.class)
 public class WhenQuotingCar {
 
@@ -26,21 +22,30 @@ public class WhenQuotingCar {
     public void BeforeEach(){
         //Navigate to the DirectLine Homepage
         searchDL.toHomePage();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        searchDL.acceptCookies();
     }
 
     @Test
     public void confirmingCorrectPage(){
         //Check that the website is correct
-        Assertions.assertEquals("About the car", searchDL.getFirstHeading(), "Heading doesn't match");
+        Assertions.assertEquals(TestData.HEADER, searchDL.getFirstHeading(), "Heading doesn't match");
     }
 
     @Test
     public void interactingWithSite(){
-
         searchDL.enterRegistration();
+    }
 
-//        String text = searchDL.interactInformationButton();
-//        System.out.println(text);
+    @Test
+    public void interactingWithButtons(){
+        searchDL.enterRegistration();
+        searchDL.interactWithButtons();
+    }
+
+    @Test
+    public void interactWithHint(){
+        String text = searchDL.interactInformationButton();
+        System.out.println(text);
+        Assertions.assertEquals(TestData.MODIFIED_HINT,text);
     }
 }

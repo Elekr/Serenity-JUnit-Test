@@ -10,7 +10,7 @@ public class DirectLineFormActions extends UIInteractions {
 
     @Step("Navigate to Home Page")
     public void toHomePage(){
-        openUrl("https://www.directline.com/car/quote/your-car");
+        openUrl(TestData.DIRECTLINE_URL);
     }
 
     @Step("Check First Heading")
@@ -18,24 +18,29 @@ public class DirectLineFormActions extends UIInteractions {
         return directLineForm.section__heading.getText();
     }
 
+    public void acceptCookies(){
+        find(directLineForm.cookies).click();
+    }
+
     @Step("Enter Registration")
     public void enterRegistration(){
-        find(directLineForm.cookies).click();
-        find(directLineForm.regSearch).sendKeys("BD14 FRA");
+        find(directLineForm.regSearch).sendKeys(TestData.TEST_REG);
         find(directLineForm.findButton).click();
-
-//        //Go through the buttons loaded testing that they work
-//        directLineForm.isYourCarYes.click();
-//        directLineForm.isYourCarNo.click();
-//
-//        directLineForm.isCar.click();
-//        directLineForm.isVan.click();
     }
 
     @Step("Interact with Information Button")
     public String interactInformationButton(){
+        find(directLineForm.modifiedHintButton).click();
+        return find(directLineForm.modifiedHintText).getText();
+    }
 
-        directLineForm.modifiedHint.click();
-        return directLineForm.modifiedHintText.getText();
+    @Step("Interacting with the radio buttons")
+    public void interactWithButtons(){
+        //Go through the buttons loaded testing that they work
+        find(directLineForm.isYourCarYes).click();
+//        find(directLineForm.isYourCarNo).click();
+//
+//        find(directLineForm.isCar).click();
+//        find(directLineForm.isVan).click();
     }
 }
