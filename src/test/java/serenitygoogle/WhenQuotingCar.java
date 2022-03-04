@@ -9,20 +9,23 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.openqa.selenium.WebDriver;
 
+import java.util.concurrent.TimeUnit;
+
 
 @ExtendWith(SerenityJUnit5Extension.class)
-public class WhenLoggingOn {
+public class WhenQuotingCar {
 
-    @Managed(driver = "chrome", options = "headless")
+    @Managed()
     WebDriver driver;
 
     //Page object set up to hold navigation of the site (Serenity automatically creates an instance)
-    SearchDirectLine searchDL;
+    DirectLineFormActions searchDL;
 
     @BeforeEach
     public void BeforeEach(){
         //Navigate to the DirectLine Homepage
         searchDL.toHomePage();
+        driver.manage().timeouts().implicitlyWait(15,TimeUnit.SECONDS);
     }
 
     @Test
@@ -35,7 +38,7 @@ public class WhenLoggingOn {
     public void interactingWithSite(){
         searchDL.enterRegistration();
 
-        String text = searchDL.interactInformationButton();
-        System.out.println(text);
+//        String text = searchDL.interactInformationButton();
+//        System.out.println(text);
     }
 }
