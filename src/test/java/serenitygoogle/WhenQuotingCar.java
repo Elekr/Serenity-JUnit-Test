@@ -22,13 +22,6 @@ public class WhenQuotingCar {
     //Page object set up to hold navigation of the site (Serenity automatically creates an instance)
     DirectLineFormActions searchDL;
 
-    @BeforeEach
-    public void BeforeEach(){
-        //Navigate to the DirectLine Homepage
-        searchDL.toHomePage();
-        searchDL.acceptCookies();
-    }
-
     @Test
     public void confirmingCorrectPage(){
         //Check that the website is correct
@@ -38,6 +31,8 @@ public class WhenQuotingCar {
     @Test
     public void interactingWithSite(){
         //Goes through sunny day scenario of using the form
+        searchDL.toHomePage();
+        searchDL.acceptCookies();
 
         //Testing the hint provides the correct information
         String text = searchDL.interactInformationButton();
@@ -49,13 +44,12 @@ public class WhenQuotingCar {
         Assertions.assertEquals("NIU NQI",detailsReturned.get(0));
         Assertions.assertEquals("2021, 0CC, SCOOTER, AUTOMATIC, ELECTRIC", detailsReturned.get(1));
 
-        //Testing that the buttons are interactive
-        searchDL.interactWithButtons();
-
         //Enter a value for the car
         searchDL.enterCarValue(TestData.TEST_CAR_VALUE);
 
         //Enter who will be the car's keeper
         searchDL.enterRegisteredKeeper(TestData.Keeper.YOU.toString());
+
+        searchDL.interactWithButtons();
     }
 }

@@ -32,12 +32,13 @@ public class DirectLineFormActions extends UIInteractions {
         find(directLineForm.regSearch).sendKeys(registration);
         find(directLineForm.findButton).click();
 
-        interactWithButtons();
-
         //Store the values of the test car
+        System.out.println(find(directLineForm.carTitle).getText());
         List<String> carDetails = new ArrayList<>();
         carDetails.add(find(directLineForm.carTitle).getText());
         carDetails.add(find(directLineForm.carDescription).getText());
+
+        //interactWithButtons();
 
         return carDetails;
     }
@@ -54,8 +55,8 @@ public class DirectLineFormActions extends UIInteractions {
         find(directLineForm.isYourCarYes).click();
         find(directLineForm.isYourCarNo).click();
 
-        find(directLineForm.isCar).click();
         find(directLineForm.isVan).click();
+        find(directLineForm.isCar).click();
 
         find(directLineForm.modYes).click();
         find(directLineForm.modNo).click();
