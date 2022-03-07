@@ -2,9 +2,6 @@ package serenitygoogle;
 
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import static io.restassured.RestAssured.given;
 
 public class RestAssured {
@@ -18,8 +15,6 @@ public class RestAssured {
         Example example = given().when().get(TestData.API).then().extract().as(Example.class);
         System.out.println(example.title);
         System.out.println(example.id);
-
-        List<String> list = new ArrayList();
-
+        //test
     }
 }
