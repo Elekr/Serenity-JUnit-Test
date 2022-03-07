@@ -3,11 +3,17 @@ package serenitygoogle;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import net.thucydides.core.annotations.Steps;
+import org.junit.jupiter.api.Assertions;
 
 public class GetQuoteStepDefinitions {
+
+    @Steps
+    DirectLineFormActions directLineFormActions;
+
     @Given("The customer has accessed the website")
     public void the_customer_has_accessed_the_website() {
-        // Write code here that turns the phrase above into concrete actions
+        directLineFormActions.toHomePage();
 
     }
     @Given("accepted the cookies")
