@@ -13,7 +13,7 @@ public class DirectLineFormActions extends UIInteractions {
     DirectLineFormElements directLineForm;
 
     @Step("Navigate to Home Page")
-    public void toHomePage(){
+    public void toQuotePage(){
         openUrl(TestData.DIRECTLINE_URL);
     }
 
@@ -49,9 +49,14 @@ public class DirectLineFormActions extends UIInteractions {
     }
 
     @Step("Interact with Information Button")
-    public String interactInformationButton(){
+    public void interactInformationButton(){
         //Interact with a hint and return its message
         find(directLineForm.modifiedHintButton).click();
+
+    }
+
+    @Step("Return modified car information")
+    public String returnModInfo(){
         return find(directLineForm.modifiedHintText).getText();
     }
 
