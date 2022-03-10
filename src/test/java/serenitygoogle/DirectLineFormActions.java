@@ -27,24 +27,30 @@ public class DirectLineFormActions extends UIInteractions {
     }
 
     @Step("Enter Registration")
-    public List<String> enterRegistration(String registration){
-        //enter in the registration
+    public void enterRegistration(String registration){
+        //enter the registration of the car
         find(directLineForm.regSearch).sendKeys(registration);
-        find(directLineForm.findButton).click();
+    }
 
+    @Step("Click the submit button")
+    public void clickSubmitButton(){
+        find(directLineForm.findButton).click();
+    }
+
+    @Step("Return the details of the car")
+    public List<String> getCarDetails(){
         //Store the values of the test car
-        System.out.println(find(directLineForm.carTitle).getText());
         List<String> carDetails = new ArrayList<>();
+
         carDetails.add(find(directLineForm.carTitle).getText());
         carDetails.add(find(directLineForm.carDescription).getText());
-
-        //interactWithButtons();
 
         return carDetails;
     }
 
     @Step("Interact with Information Button")
     public String interactInformationButton(){
+        //Interact with a hint and return its message
         find(directLineForm.modifiedHintButton).click();
         return find(directLineForm.modifiedHintText).getText();
     }

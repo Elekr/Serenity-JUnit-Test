@@ -1,9 +1,17 @@
 Feature: Getting a quote for a car using registration
 
-Scenario: As a Customer, I need to enter my car details to get a quote
+Scenario Outline: As a Customer, I need to enter my car details to get a quote
 
-  Given The customer has accessed the website
-  And accepted the cookies
-  When I enter my "registration" plate number
+  #Looking up the car
+  Given The user has accessed the website
+  And user has accepted the cookies
+  When the user enters "<testPlate>" as the registation number
   And click submit
-  Then the website will show my car model and description
+  Then the website will show the users car "<carType>"
+  And the users car "<carDesc>"
+
+  Given
+
+  Examples:
+    | testPlate | carType |                 carDesc                   |
+    | GF21 WSN  | NIU NQI |   2021, 0CC, SCOOTER, AUTOMATIC, ELECTRIC |

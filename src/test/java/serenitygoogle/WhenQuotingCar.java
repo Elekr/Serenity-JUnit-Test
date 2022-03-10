@@ -39,7 +39,9 @@ public class WhenQuotingCar {
         Assertions.assertEquals(TestData.MODIFIED_HINT,text);
 
         //Entering the test data
-        List<String> detailsReturned = searchDL.enterRegistration(TestData.TEST_REG);
+        // searchDL.enterRegistration(TestData.TEST_REG);
+
+        List <String> detailsReturned = searchDL.getCarDetails();
 
         Assertions.assertEquals("NIU NQI",detailsReturned.get(0));
         Assertions.assertEquals("2021, 0CC, SCOOTER, AUTOMATIC, ELECTRIC", detailsReturned.get(1));
