@@ -13,7 +13,7 @@ public class DirectLineFormActions extends UIInteractions {
     DirectLineFormElements directLineForm;
 
     @Step("Navigate to Home Page")
-    public void toQuotePage(){
+    public void toHomePage(){
         openUrl(TestData.DIRECTLINE_URL);
     }
 
@@ -27,36 +27,25 @@ public class DirectLineFormActions extends UIInteractions {
     }
 
     @Step("Enter Registration")
-    public void enterRegistration(String registration){
-        //enter the registration of the car
+    public List<String> enterRegistration(String registration){
+        //enter in the registration
         find(directLineForm.regSearch).sendKeys(registration);
-    }
-
-    @Step("Click the submit button")
-    public void clickSubmitButton(){
         find(directLineForm.findButton).click();
-    }
 
-    @Step("Return the details of the car")
-    public List<String> getCarDetails(){
         //Store the values of the test car
+        System.out.println(find(directLineForm.carTitle).getText());
         List<String> carDetails = new ArrayList<>();
-
         carDetails.add(find(directLineForm.carTitle).getText());
         carDetails.add(find(directLineForm.carDescription).getText());
+
+        //interactWithButtons();
 
         return carDetails;
     }
 
     @Step("Interact with Information Button")
-    public void interactInformationButton(){
-        //Interact with a hint and return its message
+    public String interactInformationButton(){
         find(directLineForm.modifiedHintButton).click();
-
-    }
-
-    @Step("Return modified car information")
-    public String returnModInfo(){
         return find(directLineForm.modifiedHintText).getText();
     }
 
